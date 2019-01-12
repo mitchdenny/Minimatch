@@ -1,0 +1,13 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'Ubuntu-16.04'
+
+steps:
+- script: |
+    npx git2semver
+    dotnet restore
+    dotnet build
+    dotnet test
+    dotnet pack
